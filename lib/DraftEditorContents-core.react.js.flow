@@ -78,11 +78,8 @@ class DraftEditorContents extends React.Component<Props> {
     const nextEditorState = nextProps.editorState;
     const prevDirectionMap = prevEditorState.getDirectionMap();
     const nextDirectionMap = nextEditorState.getDirectionMap();
-    console.log(nextProps, 'nextPropsnextPropsnextProps');
-    console.log(this.props, 'this.propsthis.propsthis.props');
-    console.log('1111111');
 
-    if (nextProps.sections && typeof nextProps.sections.equals === 'function' && nextProps.sections.equals(this.props.sections)) {
+    if (nextProps.sections && typeof nextProps.sections.equals === 'function' && !nextProps.sections.equals(this.props.sections)) {
       return true;
     } // Text direction has changed for one or more blocks. We must re-render.
 

@@ -287,7 +287,7 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       const currentBlock = editorState.getCurrentContent().getBlockMap().find(block => block.get('key') === key);
       const type = currentBlock.get('type');
 
-      if (!this.props.readOnly && (type === 'unstyle' || type === 'paragraph')) {
+      if (!this.props.readOnly && (type === 'unstyled' || type === 'paragraph')) {
         const method = this._handler && this._handler[eventName];
 
         if (method) {

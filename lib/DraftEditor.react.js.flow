@@ -285,11 +285,8 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       const key = editorState.getSelection().getStartKey();
       const currentBlock = editorState.getCurrentContent().getBlockMap().find(block => block.get('key') === key);
       const type = currentBlock.get('type');
-      console.log(eventName, 'eventName');
-      console.log(editorState, 'editorStateeditorStateeditorState');
-      console.log('222222222');
 
-      if (!this.props.readOnly) {
+      if (!this.props.readOnly && (type === 'unstyle' || type === 'paragraph')) {
         const method = this._handler && this._handler[eventName];
 
         if (method) {
@@ -359,7 +356,8 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       preventScroll,
       readOnly,
       textAlignment,
-      textDirectionality
+      textDirectionality,
+      sections
     } = this.props;
     const rootClass = cx({
       'DraftEditor/root': true,
@@ -394,7 +392,8 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       editorKey: this._editorKey,
       editorState,
       preventScroll,
-      textDirectionality
+      textDirectionality,
+      sections
     };
     const contentClassName = this.props.contentClassName != null ? this.props.contentClassName + ' ' : '';
     return <div className={rootClass}>

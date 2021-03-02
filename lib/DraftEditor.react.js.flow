@@ -279,9 +279,14 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
     // effectively a no-op. In async mode, this ensures all updates scheduled
     // inside the handler are flushed before React yields to the browser.
     return e => {
-      console.log(this.props, '_buildHandler_buildHandler_buildHandler_buildHandler');
+      const {
+        editorState
+      } = this.props;
+      const key = editorState.getSelection().getStartKey();
+      const currentBlock = editorState.getCurrentContent().getBlockMap().find(block => block.get('key') === key);
+      const type = currentBlock.get('type');
 
-      if (!this.props.readOnly) {
+      if (!this.props.readOnly && (type === 'unstyle' || type === 'paragraph')) {
         const method = this._handler && this._handler[eventName];
 
         if (method) {

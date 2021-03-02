@@ -78,6 +78,7 @@ class DraftEditorContents extends React.Component<Props> {
     const nextEditorState = nextProps.editorState;
     const prevDirectionMap = prevEditorState.getDirectionMap();
     const nextDirectionMap = nextEditorState.getDirectionMap();
+    console.log('shouldComponentUpdateshouldComponentUpdateshouldComponentUpdateshouldComponentUpdate');
 
     if (nextProps.sections && typeof nextProps.sections.equals === 'function' && !nextProps.sections.equals(this.props.sections)) {
       return true;

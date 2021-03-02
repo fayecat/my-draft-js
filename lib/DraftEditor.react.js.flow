@@ -283,6 +283,7 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
         editorState
       } = this.props;
       const key = editorState.getSelection().getStartKey();
+      console.log('_buildHandler_buildHandler_buildHandler_buildHandler');
       const currentBlock = editorState.getCurrentContent().getBlockMap().find(block => block.get('key') === key);
       const type = currentBlock.get('type');
 

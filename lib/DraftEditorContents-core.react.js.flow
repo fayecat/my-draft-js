@@ -78,16 +78,12 @@ class DraftEditorContents extends React.Component<Props> {
     const nextEditorState = nextProps.editorState;
     const prevDirectionMap = prevEditorState.getDirectionMap();
     const nextDirectionMap = nextEditorState.getDirectionMap();
-    console.log(nextEditorState, 'nextEditorStatenextEditorStatenextEditorStatenextEditorState'); // custom block should always update
-
-    const key = nextEditorState.getSelection().getStartKey();
-    const currentBlock = nextEditorState.getCurrentContent().getBlockMap().find(block => block.get('key') === key);
-    const type = currentBlock.get('type');
-
-    if (type !== 'unstyled') {
-      return true;
-    } // Text direction has changed for one or more blocks. We must re-render.
-
+    console.log(nextProps, 'nextPropsnextPropsnextProps');
+    console.log(this.props, 'this.propsthis.propsthis.props');
+    console.log('1111111'); // if (nextProps.sections !== this.props.needUpdate && this.props.needUpdate) {
+    //   return true
+    // }
+    // Text direction has changed for one or more blocks. We must re-render.
 
     if (prevDirectionMap !== nextDirectionMap) {
       return true;

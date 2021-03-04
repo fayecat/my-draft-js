@@ -78,7 +78,6 @@ class DraftEditorContents extends React.Component<Props> {
     const nextEditorState = nextProps.editorState;
     const prevDirectionMap = prevEditorState.getDirectionMap();
     const nextDirectionMap = nextEditorState.getDirectionMap();
-    console.log('shouldComponentUpdateshouldComponentUpdateshouldComponentUpdateshouldComponentUpdate');
 
     if (nextProps.sections && typeof nextProps.sections.equals === 'function' && !nextProps.sections.equals(this.props.sections)) {
       return true;
@@ -122,7 +121,9 @@ class DraftEditorContents extends React.Component<Props> {
       editorState,
       editorKey,
       preventScroll,
-      textDirectionality
+      textDirectionality,
+      sortableWrapper,
+      sortableConfigs
     } = this.props;
     const content = editorState.getCurrentContent();
     const selection = editorState.getSelection();
@@ -239,6 +240,14 @@ class DraftEditorContents extends React.Component<Props> {
         outputBlocks.push(info.block);
         ii++;
       }
+    }
+
+    if (sortableWrapper && sortableConfigs) {
+      return <div data-contents="true">
+          <sortableWrapper {...sortableConfigs}>
+            {outputBlocks}
+          </sortableWrapper>
+        </div>;
     }
 
     return <div data-contents="true">{outputBlocks}</div>;

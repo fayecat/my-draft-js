@@ -81,8 +81,9 @@ class DraftEditorContents extends React.Component<Props> {
 
     if (nextProps.sections && typeof nextProps.sections.equals === 'function' && !nextProps.sections.equals(this.props.sections)) {
       return true;
-    } // Text direction has changed for one or more blocks. We must re-render.
+    }
 
+    console.log('shouldComponentUpdateshouldComponentUpdateshouldComponentUpdateshouldComponentUpdate'); // Text direction has changed for one or more blocks. We must re-render.
 
     if (prevDirectionMap !== nextDirectionMap) {
       return true;
@@ -243,9 +244,9 @@ class DraftEditorContents extends React.Component<Props> {
 
     if (CustomWrapper) {
       return <div data-contents="true">
-          <CustomWrapper>
+          <div>
             {outputBlocks}
-          </CustomWrapper>
+          </div>
         </div>;
     }
 

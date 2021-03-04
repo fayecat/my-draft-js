@@ -243,8 +243,16 @@ class DraftEditorContents extends React.Component<Props> {
     }
 
     if (sortableWrapper && sortableConfigs) {
+      const {
+        containmentSelector,
+        binding,
+        beforeReorder,
+        afterReorder,
+        onReorder,
+        sortableConfig
+      } = sortableConfigs;
       return <div data-contents="true">
-          <sortableWrapper {...sortableConfigs}>
+          <sortableWrapper containmentSelector={containmentSelector} binding={binding} beforeReorder={beforeReorder} afterReorder={afterReorder} onReorder={onReorder} sortableConfig={sortableConfig}>
             {outputBlocks}
           </sortableWrapper>
         </div>;

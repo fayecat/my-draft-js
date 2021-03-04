@@ -360,8 +360,7 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       textAlignment,
       textDirectionality,
       sections,
-      sortableWrapper,
-      sortableConfigs
+      CustomWrapper
     } = this.props;
     const rootClass = cx({
       'DraftEditor/root': true,
@@ -398,8 +397,7 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       preventScroll,
       textDirectionality,
       sections,
-      sortableConfigs,
-      sortableWrapper
+      CustomWrapper
     };
     const contentClassName = this.props.contentClassName != null ? this.props.contentClassName + ' ' : '';
     return <div className={rootClass}>

@@ -122,8 +122,7 @@ class DraftEditorContents extends React.Component<Props> {
       editorKey,
       preventScroll,
       textDirectionality,
-      sortableWrapper,
-      sortableConfigs
+      CustomWrapper
     } = this.props;
     const content = editorState.getCurrentContent();
     const selection = editorState.getSelection();
@@ -242,19 +241,11 @@ class DraftEditorContents extends React.Component<Props> {
       }
     }
 
-    if (sortableWrapper && sortableConfigs) {
-      const {
-        containmentSelector,
-        binding,
-        beforeReorder,
-        afterReorder,
-        onReorder,
-        sortableConfig
-      } = sortableConfigs;
+    if (CustomWrapper) {
       return <div data-contents="true">
-          <sortableWrapper containmentSelector={containmentSelector} binding={binding} beforeReorder={beforeReorder} afterReorder={afterReorder} onReorder={onReorder} sortableConfig={sortableConfig}>
+          <CustomWrapper>
             {outputBlocks}
-          </sortableWrapper>
+          </CustomWrapper>
         </div>;
     }
 

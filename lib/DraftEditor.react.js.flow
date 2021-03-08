@@ -288,7 +288,7 @@ class DraftEditor extends React.Component<DraftEditorProps, State> {
       const textTypes = ['unstyled', 'paragraph'];
       const events = ['onSelect', 'onFocus'];
 
-      if (!this.props.readOnly && (events.indexOf(eventName) !== -1 || textTypes.indexOf(type) !== -1)) {
+      if (!this.props.readOnly && (events.indexOf(eventName) !== -1 || textTypes.indexOf(type) !== -1) && !(this.props.showToolbar && eventName === 'onBlur')) {
         const method = this._handler && this._handler[eventName];
 
         if (method) {
